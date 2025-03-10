@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - CarSearch</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="logo-section">
+            <a href="index.html"><div class="logo">CarSearch</div></a>
+        </div>
+    </header>
+
+    <!-- Registration Form -->
+    <div class="auth-container">
+        <div class="auth-form-container">
+            <h2>Create an Account</h2>
+            <form id="registrationForm">
+                <div class="form-group">
+                    <label for="fullName">Full Name</label>
+                    <input type="text" id="fullName" placeholder="Full Name" required>
+                </div>
+                <div class="form-group">
+                    <label for="regEmail">Email</label>
+                    <input type="email" id="regEmail" placeholder="Email" required>
+                </div>
+                <div class="form-group">
+                    <label for="regPassword">Password</label>
+                    <input type="password" id="regPassword" placeholder="Password" required>
+                </div>
+                <div class="form-group">
+                    <label for="confirmPassword">Confirm Password</label>
+                    <input type="password" id="confirmPassword" placeholder="Confirm Password" required>
+                </div>
+                <button type="submit" class="primary-button">Register</button>
+            </form>
+            
+            <div class="auth-separator">
+                <span>OR</span>
+            </div>
+            
+            <button type="button" id="oauthButton" class="oauth-button">
+                <i class="fab fa-google"></i> Register with Google
+            </button>
+            
+            <p class="auth-redirect">
+                Already have an account? <a href="login.html">Login here</a>
+            </p>
+        </div>
+    </div>
+
+    <script src="../js/api.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const registrationForm = document.getElementById('registrationForm');
+            const oauthButton = document.getElementById('oauthButton');
+            
+            registrationForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const fullName = document.getElementById('fullName').value;
+                const email = document.getElementById('regEmail').value;
+                const password = document.getElementById('regPassword').value;
+                const confirmPassword = document.getElementById('confirmPassword').value;
+                
+                if (password !== confirmPassword) {
+                    alert('Passwords do not match');
+                    return;
+                }
+                
+                try {
+                    const result = await api.registerUser(fullName, email, password);
+                    if (result.success) {
+                        alert('Registration successful! Please log in.');
+                        window.location.href = 'login.html';
+                    } else {
+                        alert('Registration failed: ' + result.message);
+                    }
+                } catch (error) {
+                    alert('Registration error: ' + error.message);
+                }
+            });
+            
+            oauthButton.addEventListener('click', () => {
+                api.initiateOAuthLogin();
+            });
+        });
+    </script>
+</body>
+</html>
