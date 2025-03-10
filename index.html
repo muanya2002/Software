@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CarSearch - Find Your Perfect Car</title>
+    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="logo-section">
+            <i class="fas fa-bars menu-icon"></i>
+            <div class="logo">CarSearch</div>
+        </div>
+        <div class="search-section">
+            <div class="search-bar">
+                <input type="text" class="search-input" placeholder="Search cars...">
+                <button class="search-button">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+        </div>
+        <div class="user-section">
+            <i class="fas fa-bell"></i>
+            <i class="fas fa-user-circle"></i>
+        </div>
+    </header>
+
+    <!-- Sidebar -->
+    <nav class="sidebar">
+        <div class="sidebar-item">
+            <i class="fas fa-home"></i>
+            <span>Home</span>
+        </div>
+        <div class="sidebar-item">
+            <i class="fas fa-heart"></i>
+            <span>Favorites</span>
+        </div>
+        <div class="sidebar-item">
+            <i class="fas fa-history"></i>
+            <span>History</span>
+        </div>
+        <div class="sidebar-item">
+            <i class="fas fa-star"></i>
+            <span>Popular</span>
+        </div>
+        <div class="sidebar-item">
+            <i class="fas fa-cog"></i>
+            <span>Settings</span>
+        </div>
+    </nav>
+    <main class="main-content">
+<div class="filters">
+    <div class="filter-chip">All Cars</div>
+    <div class="filter-chip">SUVs</div>
+    <div class="filter-chip">Sedans</div>
+    <div class="filter-chip">Sports Cars</div>
+    <div class="filter-chip">Electric</div>
+    <div class="filter-chip">Hybrid</div>
+    <div class="filter-chip">Luxury</div>
+</div>
+<div class="car-grid">
+    <!-- Car Cards -->
+    <div class="car-card">
+        <div class="car-image">
+            <img src="/api/placeholder/300/200" alt="Car 1">
+        </div>
+        <div class="car-details">
+            <div class="car-title">2024 Tesla Model 3</div>
+            <div class="car-info">Electric • Automatic • $40,000</div>
+        </div>
+    </div>
+
+    <div class="car-card">
+        <div class="car-image">
+            <img src="/api/placeholder/300/200" alt="Car 2">
+        </div>
+        <div class="car-details">
+            <div class="car-title">2024 BMW X5</div>
+            <div class="car-info">SUV • Automatic • $65,000</div>
+        </div>
+    </div>
+
+    <div class="car-card">
+        <div class="car-image">
+            <img src="/api/placeholder/300/200" alt="Car 3">
+        </div>
+        <div class="car-details">
+            <div class="car-title">2024 Honda Accord</div>
+            <div class="car-info">Sedan • Automatic • $27,000</div>
+        </div>
+    </div>
+    
+    <div class="car-card">
+        <div class="car-image">
+            <img src="/api/placeholder/300/200" alt="Car 4">
+        </div>
+        <div class="car-details">
+            <div class="car-title">2024 Porsche 911</div>
+            <div class="car-info">Sports Car • Automatic • $102,000</div>
+        </div>
+    </div>
+</div>
+</main>
+<script src="js/api.js"></script>
+<script src="js/search.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
