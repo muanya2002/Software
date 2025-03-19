@@ -5,7 +5,278 @@
     gap: 12px;
     margin: 24px 0;
 }
+/* Base Styles and Variables */
+:root {
+    --primary-color: #3498db;
+    --primary-dark: #2980b9;
+    --secondary-color: #f39c12;
+    --text-color: #333;
+    --light-text: #777;
+    --border-color: #ddd;
+    --background-color: #f8f9fa;
+    --error-color: #e74c3c;
+    --success-color: #2ecc71;
+    --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --border-radius: 4px;
+    --transition: all 0.3s ease;
+  }
+  
+  /* Reset */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--background-color);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: var(--transition);
+  }
+  
+  a:hover {
+    color: var(--primary-dark);
+  }
 
+  
+  /* Auth Form Container */
+  .auth-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  .auth-form-container {
+    background-color: white;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    width: 100%;
+    max-width: 450px;
+    padding: 30px;
+  }
+  
+  .auth-form-container h2 {
+    text-align: center;
+    margin-bottom: 25px;
+    color: var(--text-color);
+  }
+  
+  /* Form Styles */
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+  }
+  
+  .form-group input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    transition: var(--transition);
+  }
+  
+  .form-group input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+  }
+  
+  /* Button Styles */
+  .primary-button {
+    width: 100%;
+    padding: 12px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+  }
+  
+  .primary-button:hover {
+    background-color: var(--primary-dark);
+  }
+  
+  .oauth-button {
+    width: 100%;
+    padding: 12px;
+    background-color: white;
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: var(--transition);
+  }
+  
+  .oauth-button:hover {
+    background-color: var(--background-color);
+  }
+  
+  .oauth-button i {
+    color: var(--secondary-color);
+  }
+  
+  /* Separator */
+  .auth-separator {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin: 20px 0;
+    color: var(--light-text);
+  }
+  
+  .auth-separator::before,
+  .auth-separator::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid var(--border-color);
+  }
+  
+  .auth-separator span {
+    padding: 0 10px;
+  }
+  
+  /* Redirect Text */
+  .auth-redirect {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 0.95rem;
+    color: var(--light-text);
+  }
+  
+  /* Alert styles */
+  .alert {
+    padding: 12px;
+    margin-bottom: 15px;
+    border-radius: var(--border-radius);
+    text-align: center;
+  }
+  
+  .alert-error {
+    background-color: rgba(231, 76, 60, 0.1);
+    color: var(--error-color);
+    border: 1px solid rgba(231, 76, 60, 0.3);
+  }
+  
+  .alert-success {
+    background-color: rgba(46, 204, 113, 0.1);
+    color: var(--success-color);
+    border: 1px solid rgba(46, 204, 113, 0.3);
+  }
+  
+  /* Media Queries for Responsive Design */
+  /* Tablet */
+  @media screen and (max-width: 768px) {
+    .auth-form-container {
+      max-width: 90%;
+      padding: 25px;
+    }
+    
+    .logo {
+      font-size: 1.6rem;
+    }
+  }
+  
+  /* Mobile Phones */
+  @media screen and (max-width: 480px) {
+    .auth-form-container {
+      max-width: 100%;
+      padding: 20px;
+      box-shadow: none;
+    }
+    
+    .header {
+      padding: 10px 15px;
+    }
+    
+    .logo {
+      font-size: 1.4rem;
+    }
+    
+    .form-group input,
+    .primary-button,
+    .oauth-button {
+      padding: 10px;
+    }
+    
+    .auth-container {
+      padding: 10px;
+    }
+  }
+  
+  /* Very Small Devices */
+  @media screen and (max-width: 320px) {
+    .auth-form-container h2 {
+      font-size: 1.4rem;
+    }
+    
+    .form-group label {
+      font-size: 0.9rem;
+    }
+    
+    .form-group input,
+    .primary-button,
+    .oauth-button {
+      font-size: 0.9rem;
+    }
+  }
+  
+  /* Dark Mode - Optional, can be toggled with a class or media query */
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --primary-color: #3498db;
+      --primary-dark: #2980b9;
+      --text-color: #f8f9fa;
+      --light-text: #adb5bd;
+      --border-color: #495057;
+      --background-color: #343a40;
+      --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    }
+    
+    body {
+      background-color: #212529;
+    }
+    
+    .auth-form-container,
+    .header {
+      background-color: #343a40;
+    }
+    
+    .oauth-button {
+      background-color: #495057;
+      color: #f8f9fa;
+      border-color: #6c757d;
+    }
+    
+    .oauth-button:hover {
+      background-color: #343a40;
+    }
+  }
 
 /* Header Styles */
 .header {
@@ -120,7 +391,7 @@
 
 .filter-chip {
     padding: 8px 16px;
-    background-color: #e48888;
+      background-color: #2980b9;
     border-radius: 16px;
     cursor: pointer;
     white-space: nowrap;
@@ -240,7 +511,7 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Roboto', sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
         
         :root {
