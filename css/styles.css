@@ -1,3 +1,11 @@
+/* login Styles */
+.auth-separator {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 24px 0;
+}
+
 
 /* Header Styles */
 .header {
@@ -112,7 +120,7 @@
 
 .filter-chip {
     padding: 8px 16px;
-    background-color: #f0f0f0;
+    background-color: #e48888;
     border-radius: 16px;
     cursor: pointer;
     white-space: nowrap;
@@ -155,7 +163,7 @@
 }
 
 .car-info {
-    color: #666;
+    color: #534a4a;
     font-size: 14px;
 }
 
