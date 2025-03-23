@@ -7,7 +7,7 @@ const { Car } = require('./car-model');
 class OpenVerseService {
     constructor() {
         this.api = axios.create({
-            baseURL: 'https://api.openverse.org/v1',
+            baseURL: 'https://api.openverse./v1',
             headers: {
                 'Accept': 'application/json'
             }
