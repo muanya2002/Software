@@ -41,12 +41,44 @@ class OpenVerseService {
             throw error;
         }
     }
-
+// Access token storage
+accessToken = '';
+    
+// Function to get access token - this will use a direct fetch rather than axios
+// since we're in a browser environment
+async getAccessToken() {
+    try {
+        const response = await fetch('https://api.openverse.engineering/v1/auth_tokens/token/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                client_id: 'YOUR_CLIENT_ID',  // Replace with your actual client ID
+                client_secret: 'YOUR_CLIENT_SECRET',  // Replace with your actual client secret
+                grant_type: 'client_credentials'
+            })
+        });
+        
+        if (!response.ok) {
+            throw new Error(`Failed to get access token: ${response.status}`);
+        }
+        
+        const data = await response.json();
+        this.accessToken = data.access_token;
+        return this.accessToken;
+    } catch (error) {
+        console.error('Error getting access token:', error);
+        return null;
+    }
+}
+ 
     /**
      * Build search query string from parameters
      * @private
      */
-    _buildSearchQuery(query, filters) {
+    _buildSearchQuery(query, filters)
+     {
         let searchQuery = query || '';
         
         if (filters.make) searchQuery += ` ${filters.make}`;
@@ -66,7 +98,8 @@ class OpenVerseService {
      * Transform API results to car objects
      * @private
      */
-    _transformResults(results, query, filters) {
+    _transformResults(results, query, filters)
+     {
         // Extract search terms to use in mapping results
         const searchTerms = (query || '').toLowerCase().split(' ');
         const makes = ['toyota', 'honda', 'ford', 'chevrolet', 'bmw', 'mercedes', 'audi', 'tesla', 'nissan', 'volkswagen'];
@@ -158,7 +191,8 @@ class OpenVerseService {
      * Generate realistic car features based on category and year
      * @private
      */
-    _generateFeatures(category, year) {
+    _generateFeatures(category, year) 
+    {
         const baseFeatures = [
             'Air Conditioning',
             'Power Windows',

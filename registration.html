@@ -55,6 +55,7 @@
 
     <script src="./api-js.js"></script>
     <script>
+        import { registerUser } from './auth-controller.js';
         document.addEventListener('DOMContentLoaded', () => {
             const registrationForm = document.getElementById('registrationForm');
             const oauthButton = document.getElementById('oauthButton');
@@ -75,7 +76,7 @@
                     const result = await api.registerUser(fullName, email, password);
                     if (result.success) {
                         alert('Registration successful! Please log in.');
-                        window.location.href = 'login.html';
+                        window.location.href = './login.html';
                     } else {
                         alert('Registration failed: ' + result.message);
                     }
